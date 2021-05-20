@@ -7,21 +7,43 @@ namespace Triangulos.Tests
     public class TrianguloTest
     {
         [TestMethod]
-        public void DeveVerificarTiposDeTriangulos()
+        public void DeveSerTrianguloEquilatero()
         {
-            Triangulo equilatero = new Triangulo(3, 3, 3);
+            Triangulo equilatero = new Triangulo(3, 3, 3);            
+
+            string resultadoEquilatero = equilatero.validar();            
+
+            Assert.AreEqual("Triangulo equilátero", resultadoEquilatero);            
+        }
+
+        [TestMethod]
+        public void DeveSerTrianguloIsoceles()
+        {
             Triangulo isoceles = new Triangulo(3, 3, 1);
+
+            string resultadoIsoceles = isoceles.validar();
+
+            Assert.AreEqual("Triangulo isóceles", resultadoIsoceles);
+        }
+
+        [TestMethod]
+        public void DeveSerTrianguloEscaleno()
+        {
             Triangulo escaleno = new Triangulo(4, 3, 2);
+
+            string resultadoEscaleno = escaleno.validar();
+
+            Assert.AreEqual("Triangulo escaleno", resultadoEscaleno);
+        }
+
+
+        [TestMethod]
+        public void DeveSerTrianguloInvalido()
+        {
             Triangulo invalido = new Triangulo(3, 2, 1);
 
-            string resultadoEquilatero = equilatero.validar();
-            string resultadoIsoceles = isoceles.validar();
-            string resultadoEscaleno = escaleno.validar();
             string resultadoInvalido = invalido.validar();
 
-            Assert.AreEqual("Triangulo equilátero", resultadoEquilatero);
-            Assert.AreEqual("Triangulo isóceles", resultadoIsoceles);
-            Assert.AreEqual("Triangulo escaleno", resultadoEscaleno);
             Assert.AreEqual("Triangulo inválido", resultadoInvalido);
         }
     }
