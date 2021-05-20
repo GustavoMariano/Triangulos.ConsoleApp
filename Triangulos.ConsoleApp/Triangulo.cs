@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Triangulos.ConsoleApp
+﻿namespace Triangulos.ConsoleApp
 {
     public class Triangulo
     {
@@ -15,29 +13,27 @@ namespace Triangulos.ConsoleApp
 
         public string validar()
         {
-            if (ladoA + ladoB > ladoC 
-                && ladoA + ladoC > ladoB
-                && ladoB + ladoC > ladoA)
+            if (EhTrianguloValido())
             {
                 if (ladoA == ladoB && ladoA == ladoC)
-                {
-                    return "Triangulo Equilátero";
-                }
-                else if(ladoA == ladoB 
-                    || ladoA == ladoC
-                    || ladoB == ladoC)
-                {
+                    return "Triangulo equilátero";
+                else if (EhTrianguloIsoceles())
                     return "Triangulo isóceles";
-                }
                 else
-                {
                     return "Triangulo escaleno";
-                }
             }
             else
-            {
                 return "Triangulo inválido";
-            }
+        }
+
+        private bool EhTrianguloIsoceles()
+        {
+            return ladoA == ladoB || ladoA == ladoC || ladoB == ladoC;
+        }
+
+        private bool EhTrianguloValido()
+        {
+            return ladoA + ladoB > ladoC && ladoA + ladoC > ladoB && ladoB + ladoC > ladoA;
         }
     }
 }

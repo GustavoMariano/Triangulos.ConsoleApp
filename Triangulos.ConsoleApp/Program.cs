@@ -15,13 +15,12 @@ namespace Triangulos.ConsoleApp
 
                 Console.WriteLine("1 - Para inserir os números" +
                     "\n2 - Para pegar os exemplos prontos" +
-                    "\nS - Para encerrar digite S");
+                    "\nS - Para encerrar digite s");
                 opcao = Console.ReadLine().ToUpper();
 
                 if (opcao == "S")
-                {
                     break;
-                }
+
                 else if (EhOpcaoDigitar(opcao))
                 {
                     Console.Clear();
